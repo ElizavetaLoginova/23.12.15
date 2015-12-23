@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+const int N = 256;
+
+int LengthString(char[]);
+bool Compare(char[], char[]);
+
+int main()
+{
+	cout << "The 1-st sentence is: " << endl;
+	char str1[N] = "Hello";
+	cout << str1 << endl;
+	cout << "The 2-st sentence is: " << endl;
+	char str2[N] = "HELlo";
+
+	if (Compare(str1, str2))
+		cout << "This sentences are equal! ";
+	else 
+		cout << "This sentences are NOT equal! ";
+		
+	system("pause");
+	return 0;
+}
+
+
+int LengthString(char string[])
+{
+	int i = 0;
+	while (string[i])
+		i++;
+	return i;
+}
+
+char ToUpper(char symbol)
+{
+	if (symbol >= 'a' && symbol <= 'z')
+	{
+		return symbol -= 32;
+	}
+	return symbol;
+}
+
+bool Compare(char str1[], char str2[])
+{
+	if (LengthString(str1) != LengthString(str2))
+	{
+		return false;
+	}
+	int n = LengthString(str1);
+	for (int i = 0; i < n; i++)
+	{
+		if (ToUpper(str1[i]) != ToUpper(str2[i]))
+		{
+			return false;
+		}
+	}
+	return true;
+}
