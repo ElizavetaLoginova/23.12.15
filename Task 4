@@ -8,10 +8,11 @@ bool Compare(char[], char[]);
 int main()
 {
 	cout << "The 1-st sentence is: " << endl;
-	char str1[N] = "Hello";
-	cout << str1 << endl;
-	cout << "The 2-st sentence is: " << endl;
-	char str2[N] = "HELlo";
+	char str1[N];
+	cin >> str1;
+	cout << endl << "The 2-st sentence is: " << endl;
+	char str2[N];
+	cin >> str2;
 
 	if (Compare(str1, str2))
 		cout << "This sentences are equal! ";
