@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+const int N = 256;
+
+int LengthString(char[]);
+void ToDeleteSymbol(char[], int);
+bool IsAlphabet(char);
+
+int main()
+{
+	cout << "Your text is: " << endl;
+	char string[N] = "If your ! mouse is unavailable or; 12345 %& *&"
+		" if you - prefer to use your keyboard, "
+		" you can use the following keyboard... ";
+	cout << string<< endl;
+	
+	for (int i = 0; i <= LengthString(string); i++)
+	{
+		int a = string[i];
+		ToDeleteSymbol(string, i);
+	}
+	
+	for (int i = 0; i <= LengthString(string); i++)
+		cout << string[i];
+	system ("pause");
+	return 0;
+}
+
+
+int LengthString(char string[])
+{
+	int i = 0;
+	while (string[i])
+		i++;
+	return i;
+}
+
+void ToDeleteSymbol(char string[], int i)
+{
+	for (int i = 0; i <= LengthString(string); i++)
+	{
+		char a = string[i];
+		if (!(IsAlphabet(a)))
+		for (int j = i; j <= LengthString(string); j++)
+			string[i] = string[i + 1];
+	}
+}
+
+bool IsAlphabet(char symbol)
+{
+	for (char ch = 'A'; ch <= 'Z'; ch++)
+	if (symbol == ch) return true;
+	for (char ch = 'a'; ch <= 'z'; ch++)
+	if (symbol == ch) return true;
+	return false;
+}
