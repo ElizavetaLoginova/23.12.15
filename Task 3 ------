@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+const int N = 256;
+
+bool IsAlphabet(char symbol);
+int LengthString(char[]);
+bool IsSymbolСonsonant(char symbol);
+void ObtainArrayOfWords(char s[], char arr[][N], int& k);
+
+int main()
+{
+	cout << "Your text is: " << endl;
+	char string[N] = "If your ! mouse is unavailable or; 12345 %& *&"
+		" if you - prefer to use your keyboard, "
+		" you can use the following keyboard... ";
+	cout << string << endl;
+
+	cout << "Enter the length of the word: ";
+	int lenW;
+	cin >> lenW;
+
+	
+		
+	system("pause");
+	return 0;
+}
+
+
+int LengthString(char string[])
+{
+	int i = 0;
+	while (string[i])
+		i++;
+	return i;
+}
+
+bool IsSymbolСonsonant(char symbol)
+{
+	char сonsonant[] = "qwrtypsdfghjklzxcvbnmQWRTYPSDFGHJKLZXCVBNM";
+	int length = LengthString(сonsonant);
+	for (int i = 0; i < length; i++)
+	{
+		if (symbol == сonsonant[i])
+			return true;
+	}
+	return false;
+}
+bool IsAlphabet(char symbol)
+{
+	for (char ch = 'A'; ch <= 'Z'; ch++)
+	if (symbol == ch) return true;
+	for (char ch = 'a'; ch <= 'z'; ch++)
+	if (symbol == ch) return true;
+	return false;
+}
+
+void ObtainArrayOfWords(char s[], char arr[][N], int& k)
+{
+	bool flag = false;
+	int   i = -1, j = 0;
+	//char word[N] = "";
+	k = 0;
+	while (s[++i])
+	{
+		//char currentSymbol = s[i];
+		if (IsAlphabet(s[i]))
+		{
+			flag = true;
+			//word[j] = currentSymbol;
+			arr[k][j] = s[i];
+			j++;
+			continue;
+		}
+
+		if (flag)
+		{
+			// добавить логику
+			/*if (IsStringPolindrom(word))
+			{
+			StringCopy(arr[k],word);
+			}*/
+			flag = false;
+			k++;
+			j = 0;
+		}
+	}
+}
