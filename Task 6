@@ -12,6 +12,8 @@ int main()
 		" if you - prefer to use your keyboard, "
 		" you can use the following keyboard... ";
 	cout << string << endl;
+	cout << "The number of words: " << NumberOfWords(string);
+	system("pause");
 	return 0;
 }
 
