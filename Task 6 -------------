@@ -3,7 +3,7 @@ using namespace std;
 const int N = 256;
 
 bool IsAlphabet(char symbol);
-void ObtainArrayOfWords(char s[], char arr[][N], int& k);
+int NumberOfWords(char s[]);
 
 int main()
 {
@@ -15,31 +15,29 @@ int main()
 	return 0;
 }
 
-void ObtainArrayOfWords(char s[], char arr[][N], int& k)
+int NumberOfWords(char s[])
 {
 	bool flag = false;
 	int   i = -1, j = 0;
 	//char word[N] = "";
-	k = 0;
+	int k = 0;
 	while (s[++i])
 	{
 		if (IsAlphabet(s[i]))
 		{
 			flag = true;
-			arr[k][j] = s[i];
 			j++;
 			continue;
 		}
 
 		if (flag)
 		{
-			// добавить логику
-			
 			flag = false;
 			k++;
 			j = 0;
 		}
 	}
+	return k;
 }
 
 bool IsAlphabet(char symbol)
