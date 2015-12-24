@@ -44,7 +44,6 @@ void ToDeleteSymbol(char string[], int i)
 		if (!(IsAlphabet(a)) && string[i] != ' ')
 		for (int j = i; j <= len; j++)
 			string[i] = string[i + 1];
-		len--;
 	}
 }
 
