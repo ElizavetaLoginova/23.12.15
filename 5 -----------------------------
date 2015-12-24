@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+const int N = 256;
+
+bool IsAlphabet(char symbol);
+void ObtainArrayOfWords(char s[], char arr[][N], int& k);
+
+int main()
+{
+	cout << "Your text is: " << endl;
+	char string[N] = "If your ! mouse is unavailable or; 12345 %& *&"
+		" if you - prefer to use your keyboard, "
+		" you can use the following keyboard... ";
+	cout << string << endl;
+	return 0;
+}
+
+void ObtainArrayOfWords(char s[], char arr[][N], int& k)
+{
+	bool flag = false;
+	int   i = -1, j = 0;
+	//char word[N] = "";
+	k = 0;
+	while (s[++i])
+	{
+		if (IsAlphabet(s[i]))
+		{
+			flag = true;
+			arr[k][j] = s[i];
+			j++;
+			continue;
+		}
+
+		if (flag)
+		{
+			// добавить логику
+			
+			flag = false;
+			k++;
+			j = 0;
+		}
+	}
+}
+
+bool IsAlphabet(char symbol)
+{
+	for (char ch = 'A'; ch <= 'Z'; ch++)
+	if (symbol == ch) return true;
+	for (char ch = 'a'; ch <= 'z'; ch++)
+	if (symbol == ch) return true;
+	return false;
+}
