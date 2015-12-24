@@ -37,12 +37,14 @@ int LengthString(char string[])
 
 void ToDeleteSymbol(char string[], int i)
 {
-	for (int i = 0; i <= LengthString(string); i++)
+	int len = LengthString(string);
+	for (int i = 0; i <= len; i++)
 	{
 		char a = string[i];
-		if (!(IsAlphabet(a)))
-		for (int j = i; j <= LengthString(string); j++)
+		if (!(IsAlphabet(a)) && string[i] != ' ')
+		for (int j = i; j <= len; j++)
 			string[i] = string[i + 1];
+		len--;
 	}
 }
 
